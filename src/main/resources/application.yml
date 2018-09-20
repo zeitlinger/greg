@@ -1,0 +1,6 @@
+graphql:
+      servlet:
+               mapping: /greg
+               enabled: true
+               corsEnabled: true
+debug: true
