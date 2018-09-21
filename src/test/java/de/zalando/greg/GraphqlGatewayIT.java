@@ -24,10 +24,14 @@ public class GraphqlGatewayIT {
     public void gateway() {
         ResponseEntity<String> post = restTemplate.postForEntity(
                 "/greg",
-                "{\n" +
-                        "  \"query\": \"{ foo { bar} }\"" +
-                        " }"
+                "{ \"query\": \"{ " +
+//                        "root { " +
+                        "bar " +
+                        "_baz { bla } " +
+//                        "}" +
+                        " }\" }"
                         , String.class);
-        Assertions.assertThat(post.getBody()).isEqualTo("{\"data\":{\"foo\":{\"bar\":\"hello world\"}}}");
+        Assertions.assertThat(post.getBody())
+                .isEqualTo("{\"data\":{\"bar\":\"hello world\",\"_baz\":{\"bla\":\"hello world\"}}}");
     }
 }
