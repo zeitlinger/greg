@@ -3,4 +3,4 @@ graphql:
                mapping: /greg
                enabled: true
                corsEnabled: true
-debug: true
+#debug: true
